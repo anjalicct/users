@@ -1,0 +1,24 @@
+{
+    "name": "anjalicct/user",
+    "description": "This Package is used to develop User Module",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "classmap": [
+            "src/database/migrations",
+            "src/controllers",
+            "src/models"
+        ],
+        "psr-4": {
+            "Anjalicct\\User\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "anjali",
+            "email": "anjali.p@communicationcrafts.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
