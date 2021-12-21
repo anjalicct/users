@@ -25,7 +25,6 @@
 
 </head>
 <body>
-  
         
         @if ($message = Session::get('success'))
             <div class="alert alert-success">
@@ -70,18 +69,10 @@
                                 </td>
                                 <td>{{ ($user->is_admin == '1') ? 'Admin User' : 'User' }}</td>
                                 <td>{{ $user->created_at }}</td>
-                                <td>
-                                    <form action="#" method="POST">
+                                <td>                    
+                                    <a class="btn btn-info" href="{{ route('users.show', $user->id)}}">Show</a>
                     
-                                        <a class="btn btn-info" href="#">Show</a>
-                        
-                                        <a class="btn btn-primary" href="#">Edit</a>
-                    
-                                        @csrf
-                                        @method('DELETE')
-                        
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </form>
+                                    <a class="btn btn-primary" href="{{ route('users.edit', $user->id)}}">Edit</a>
                                 </td>
                             </tr>
                             @endforeach

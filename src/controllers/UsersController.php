@@ -39,7 +39,7 @@ class UsersController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required',
             'is_admin' => 'required',
             'role_id' => 'required',
@@ -53,35 +53,49 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users  $users
+     * use Anjalicct\User\models\Users
      * @return \Illuminate\Http\Response
      */
-    public function show(Users $users)
+    public function show($id)
     {
-        //
+        $user = Users::find($id);
+        return view('users::show',compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Users  $users
+     * use \Anjalicct\User\models\Users
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users $users)
+    public function edit($id)
     {
-        //
+        $user = Users::find($id);
+        return view('users::edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Users  $users
+     * use  \App\Models\Users
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Users $users)
+    public function update(Request $request, $id)
     {
-        //
+        $user = Users::find($id);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'is_admin' => 'required',
+            'role_id' => 'required',
+        ]);
+
+        $user->update($request->all());
+
+        return redirect()->route('users.index')
+                        ->with('success','User updated successfully');
     }
 
     /**
