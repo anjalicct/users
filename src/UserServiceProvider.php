@@ -29,6 +29,9 @@ class UserServiceProvider extends ServiceProvider
 
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
 
+         $this->publishes([__DIR__.'/public' => public_path('public/'),
+        ], 'asset');
+
         $this->publishes([__DIR__.'/routes/users.php' => resource_path('routes/users.php'),
         ], 'routes');
         
