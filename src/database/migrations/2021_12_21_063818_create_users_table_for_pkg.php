@@ -19,6 +19,7 @@ class CreateUsersTableForPkg extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->text('user_image')->nullable();
             $table->enum('is_admin', ['0', '1']);
             $table->string('role_id')->nullable();
             $table->timestamps();

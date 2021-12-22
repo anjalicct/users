@@ -31,7 +31,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight mt-5 mb-4">
             {{ __('Users') }}
         </h2>
-        <form action="{{ route('users.update',$user->id) }}" method="POST">
+        <form action="{{ route('users.update',$user->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -54,6 +54,27 @@
                                     <div class="form-group">
                                         <label for="email"> Email <span class="text-danger">*</span> </label>
                                         <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="{{ $user->email }}">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label for="name"> Image </label>
+                                        <a href="{{ asset('/user_images/'. $user->id . '/' . $user->user_image) }}" target="_blank" >
+                                            <img width="200" height="200" src="{{ asset('/user_images/'. $user->id . '/' . $user->user_image) }}" class="form-control-file col-xl-6" alt="Image not Found">
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label for="name"> Upload New Image</label>
+                                        <input type="file" name="user_image" id="user_image" class="form-control-file">
+                                         <span class="text-danger"> Note : This will replace your old image.</span>
                                     </div>
                                 </div>
 

@@ -20,6 +20,7 @@ class Users extends Model
         'name',
         'email',
         'password',
+        'user_image',
         'is_admin',
         'role_id',
     ];

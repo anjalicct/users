@@ -27,7 +27,7 @@
 <body>
 
     <div class="container pt-3">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight mt-5 mb-4">
             {{ __('View Users') }}
             <a class="btn btn-info float-right ml-2" href="{{ route('users.index') }}"> Back</a>
             <a class="btn btn-primary float-right" href="{{ route('users.edit', $user->id) }}"> Edit </a>
@@ -42,7 +42,12 @@
                 <td class="col-6"> User Email </td><td class="col-6" style="word-break:break-all;">{{ $user->email }}</td>
             </tr>
             <tr>
-                <td class="col-6"> User Password </td><td class="col-6">{{ $user->password }}</td>
+                <td class="col-6"> User Image </td>
+                <td class="col-6">
+                    <a href="{{ asset('/user_images/'. $user->id . '/' . $user->user_image) }}" target="_blank">
+                        <img width="200" height="200" src="{{ asset('/user_images/'. $user->id . '/' . $user->user_image) }}" alt="Image not found.">
+                    </a>
+                </td>
             </tr>
             <tr>
                 <td class="col-6"> User Type </td><td class="col-6">{{ $user->is_admin }}</td>

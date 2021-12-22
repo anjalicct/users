@@ -3,6 +3,7 @@
 namespace Anjalicct\User;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\Http\FormRequest;
 
 class UserServiceProvider extends ServiceProvider
 {

@@ -31,7 +31,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight mt-5 mb-4">
             {{ __('Users') }}
         </h2>
-        <form action="{{ route('users.store') }}" method="POST">
+        <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         
             <div class="row"> 
@@ -46,7 +46,6 @@
                                     <div class="form-group">
                                         <label for="name"> Name <span class="text-danger">*</span> </label>
                                         <input type="text" name="name" id="name" class="form-control" placeholder="Name">
-                                        
                                     </div>
                                 </div>
 
@@ -54,7 +53,6 @@
                                     <div class="form-group">
                                         <label for="email"> Email <span class="text-danger">*</span> </label>
                                         <input type="text" name="email" id="email" class="form-control" placeholder="Email">
-                                       
                                     </div>
                                 </div>
 
@@ -72,19 +70,24 @@
 
                                 <div class="col-xl-6">
                                     <div class="form-group">
-                                        <label for="is_admin"> Type <span class="text-danger">*</span> </label>
-                                        <select name="is_admin" class="form-control">
-                                            <option disable selected value>Select Type</option>
-                                            <option value="0">User</option>
-                                            <option value="1">Admin</option>
-                                        </select>
-                                        
+                                        <label for="name"> Upload Image <span class="text-danger">*</span> </label>
+                                        <input type="file" name="user_image" id="user_image" class="form-control-file">
                                     </div>
                                 </div>
 
                             </div>
 
                             <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="form-group">
+                                        <label for="is_admin"> Type <span class="text-danger">*</span> </label>
+                                        <select name="is_admin" class="form-control">
+                                            <option disable selected value>Select Type</option>
+                                            <option value="0">User</option>
+                                            <option value="1">Admin</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                 <div class="col-xl-6">
                                     <div class="form-group">
@@ -93,8 +96,6 @@
                                             <option selected>Select Role</option>
                                                 <option value="0"> Default</option>
                                         </select>
-                                        
-                                        
                                     </div>
                                 </div>
 

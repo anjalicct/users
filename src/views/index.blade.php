@@ -53,6 +53,7 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th width="100px">Image</th>
                                 <th>Role</th>
                                 <th>Type</th>
                                 <th>Created At</th>
@@ -64,6 +65,7 @@
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td> <a href="{{ is_null($user->user_image) ? 'javascript:void(0)' : asset('/user_images/'. $user->id . '/' . $user->user_image) }}" target="_blank"> <img width="100" height="100" src="{{ asset('/user_images/'. $user->id . '/' . $user->user_image) }}" alt="Image not found."></a> </td>
                                 <td>
                                     {{($user->role_id)}}
                                 </td>
